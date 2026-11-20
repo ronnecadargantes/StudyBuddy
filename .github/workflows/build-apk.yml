@@ -29,11 +29,17 @@ jobs:
         run: |
           npm install --legacy-peer-deps
           npm run build || npx vite build
+          ls -la dist || ls -la build || true
 
       - name: Add and sync Capacitor Android
+        env:
+          CI: "true"
+          CAPACITOR_TELEMETRY_ENABLED: "false"
         run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/android --legacy-peer-deps
-          npx cap add android || true
+          npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest --legacy-peer-deps --no-audit --no-fund
+          rm -f capacitor.config.json
+          npx cap init "StudyBuddy" "com.ronnecadargantes.studybuddy" --web-dir=dist --non-interactive || true
+          npx cap add android
           npx cap sync android
 
       - name: Assemble Debug APK
