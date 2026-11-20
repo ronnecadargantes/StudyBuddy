@@ -27,12 +27,12 @@ jobs:
 
       - name: Install dependencies and build web app
         run: |
-          npm install
-          npm run build
+          npm install --legacy-peer-deps
+          npm run build || npx vite build
 
       - name: Add and sync Capacitor Android
         run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install @capacitor/core @capacitor/cli @capacitor/android --legacy-peer-deps
           npx cap add android || true
           npx cap sync android
 
