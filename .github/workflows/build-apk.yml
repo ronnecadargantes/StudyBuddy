@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -23,9 +24,6 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "21"
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
 
       - name: Install dependencies and build web app
         run: |
