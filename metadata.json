@@ -1,0 +1,6 @@
+{
+  "name": "Folio — Student Study Workspace",
+  "description": "A focused academic workspace for students featuring spaced-repetition flashcards, Cornell notes, a Pomodoro study timer, assignment planner, and GPA tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
